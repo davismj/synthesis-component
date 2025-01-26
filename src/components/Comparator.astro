@@ -1,0 +1,78 @@
+---
+import Cube from "./Cube.astro";
+---
+
+<div class="comparator-container">
+  <div class="stack left">
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+    <Cube />
+  </div>
+  <div class="stack right">
+    <Cube />
+  </div>
+  <div class="number left">
+    10
+  </div>
+  <div class="number right">
+    1
+  </div>
+</div>
+<style>
+  .comparator-container {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr max-content 1fr;
+    grid-template-rows: 1fr max-content;
+    grid-template-areas:
+      ". left-stack . right-stack ."
+      ". left-number . right-number .";
+    row-gap: 0.5rem;
+    height: 100%;
+  }
+
+  .control {
+    grid-area: control;
+  }
+
+  .left.stack {
+    grid-area: left-stack;
+  }
+
+  .right.stack {
+    grid-area: right-stack;
+  }
+
+  .comparator {
+    grid-area: comparator;
+  }
+
+  .left.number {
+    grid-area: left-number;
+  }
+
+  .right.number {
+    grid-area: right-number;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .number {
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

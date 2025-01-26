@@ -1,0 +1,62 @@
+<div class="cube">
+  <div class="front face"></div>
+  <div class="back face"></div>
+  <div class="top face"></div>
+  <div class="right face"></div>
+  <div class="bottom face"></div>
+  <div class="left face"></div>
+</div>
+
+<style>
+.cube {
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(45deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid oklch(100% 0 0);
+}
+
+.front {
+  transform: translateZ(25px);
+  background-color: oklch(40% 40% 240);
+}
+.back {
+  transform: translateZ(-25px) rotateY(180deg);
+}
+.right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(25px);
+  background-color: oklch(90% 20% 240);
+}
+.top {
+  transform: rotateX(90deg) translateZ(25px);
+  background-color: oklch(75% 35% 240);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(25px);
+}
+/* 
+  note: these values represent the drawn bounding box of the cubes. however,
+    its easier to give a 3d stacking effect without expanding the dom elements
+    to their true bounding boxes. on the other hand, not using the drawn
+    bounding boxes could cause undesired visual effects, such as overflowing
+    off the screen. holding these values for now.
+
+.container {
+  outline: 1px dashed black;
+  height: 80px;
+  width: 73px;
+} 
+.cube {
+  transform: translateX(15px) translateY(23px);
+}
+*/
+</style>

@@ -5,18 +5,29 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{Astro.props.title}</title>
 	</head>
-	<body>
+	<body class="tablet">
 		<slot />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
+	html {
+		display: flex;
 		height: 100%;
+		width: 100%;
+		background: oklch(25% 0% 0);
+		align-items: center;
+		justify-content: center;
+	}
+	body {
+		height: 100%;
+		width: 100%;
+		background: oklch(98% 0% 0);
+	}
+	.tablet {
+		max-width: 1024px;
+		max-height: 768px;
 	}
 </style>
